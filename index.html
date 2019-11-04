@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo-list</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="header">
+    TODOList
+</div>
+
+<div id="main">
+
+    <div id="form">
+        <label for="find">
+            <input id="find" type="text" name="find" placeholder="Search by title" onblur="searchTask(this)" oninput="searchTask(this)">
+        </label>
+
+        <label for="status">
+            <select id="status" onchange="searchTask(this)">
+                <option value="all" selected>all</option>
+                <option value="open">open</option>
+                <option value="done">done</option>
+            </select>
+        </label>
+
+        <label for="importance">
+            <select id="importance" onchange="searchTask(this)">
+                <option value="all" selected>all</option>
+                <option value="high">high</option>
+                <option value="normal">normal</option>
+                <option value="low">low</option>
+            </select>
+        </label>
+
+        <input id="create" type="button" value="create" onclick="createTask()">
+    </div>
+
+    <div id="newtask">
+        <form action="" id="newtaskform">
+
+            <div id="formtitle">
+                Create new task
+            </div>
+
+            <label for="title">Title:</label>
+            <input id="title" type="text" placeholder="Title">
+
+            <label for="description">Description:</label>
+            <textarea id="description" placeholder="Description" rows="4"></textarea>
+
+            <label for="setimportance">Priority:</label>
+            <select id="setimportance">
+                <option value="high" selected>high</option>
+                <option value="normal">normal</option>
+                <option value="low">low</option>
+            </select>
+
+            <div id="formbuttons">
+                <input id="cancel" type="button" value="Cancel" onclick="cancelTask('newtask')">
+                <input id="save" type="button" value="Save" onclick="createTodo()">
+            </div>
+
+
+        </form>
+    </div>
+
+    <div id="edittask">
+        <form action="" id="edittaskform">
+
+            <div id="editformtitle">
+                Edit task
+            </div>
+
+            <label for="edittitle">Title:</label>
+            <input id="edittitle" type="text" placeholder="Title">
+
+            <label for="editdescription">Description:</label>
+            <textarea id="editdescription" placeholder="Description" rows="4"></textarea>
+
+            <label for="editsetimportance">Priority:</label>
+            <select id="editsetimportance">
+                <option value="high" selected>high</option>
+                <option value="normal">normal</option>
+                <option value="low">low</option>
+            </select>
+
+            <div id="editformbuttons">
+                <input id="editcancel" type="button" value="Cancel" onclick="cancelTask('edittask')">
+                <input id="editsave" type="button" value="Save" onclick="saveTodo(this)">
+            </div>
+
+
+        </form>
+    </div>
+
+    <div id="tasks">
+    </div>
+</div>
+<div id="footer">
+    Ruslan Lavreniuk
+</div>
+<script src="src/index.js"></script>
+</body>
+</html>
